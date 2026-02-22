@@ -1,0 +1,23 @@
+[debug] [2026-02-22T19:51:08.468Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-22T19:51:08.476Z] > authorizing via signed-in user (abot8639@gmail.com)
+[debug] [2026-02-22T19:51:08.477Z] Checked if tokens are valid: false, expires at: 1771774366019
+[debug] [2026-02-22T19:51:08.478Z] Checked if tokens are valid: false, expires at: 1771774366019
+[debug] [2026-02-22T19:51:08.479Z] > refreshing access token with scopes: []
+[debug] [2026-02-22T19:51:08.483Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-22T19:51:08.484Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-22T19:51:08.490Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-22T19:51:08.491Z] > authorizing via signed-in user (abot8639@gmail.com)
+[debug] [2026-02-22T19:51:08.492Z] Checked if tokens are valid: false, expires at: 1771774366019
+[debug] [2026-02-22T19:51:08.492Z] Checked if tokens are valid: false, expires at: 1771774366019
+[debug] [2026-02-22T19:51:08.492Z] > refreshing access token with scopes: []
+[debug] [2026-02-22T19:51:08.493Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-22T19:51:08.493Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-22T19:51:08.693Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-22T19:51:08.693Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-22T19:51:08.703Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/flutter-esp32-1/billingInfo [none]
+[debug] [2026-02-22T19:51:08.706Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-22T19:51:08.706Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-22T19:51:08.712Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/flutter-esp32-1/billingInfo [none]
+[debug] [2026-02-22T19:51:09.280Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/flutter-esp32-1/billingInfo 403
+[debug] [2026-02-22T19:51:09.281Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/flutter-esp32-1/billingInfo {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-02-22T19:51:09.686Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/flutter-esp32-1/billingInfo 403
