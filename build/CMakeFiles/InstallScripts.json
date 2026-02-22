@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/dexter/todoCLI/build/cmake_install.cmake",
+		"/home/dexter/todoCLI/build/_deps/ftxui-build/cmake_install.cmake",
+		"/home/dexter/todoCLI/build/_deps/ftxui-build/examples/cmake_install.cmake",
+		"/home/dexter/todoCLI/build/_deps/ftxui-build/doc/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
