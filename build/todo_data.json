@@ -4,13 +4,8 @@
       "done": 3,
       "total": 3,
       "tasks": ["build todo cli", "improve the ui ux", "fix the errors"],
-      "task_done": [true, true, true]
-    },
-    "2026-02-26": {
-      "done": 0,
-      "total": 3,
-      "tasks": ["build todo cli", "improve tHe ui ux", "\n"],
-      "task_done": [false, false, false]
+      "task_done": [true, true, true],
+      "task_tags": ["", "", ""]
     }
   }
 }

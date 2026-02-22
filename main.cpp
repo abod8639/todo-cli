@@ -36,6 +36,7 @@ struct DayRecord {
   int total = 0;
   std::vector<std::string> tasks;
   std::vector<bool>        task_done;
+  std::vector<std::string> task_tags;  // التاجات لكل مهمة
 };
 using DayMap = std::map<std::string, DayRecord>;
 
@@ -125,6 +126,18 @@ DayMap load(const std::string &filename) {
           skipWS(src, pos);
           if (pos < src.size() && src[pos] == ',') pos++;
         }
+      } else if (key == "task_tags") {
+        if (src[pos] != '[') continue;
+        pos++;
+        while (pos < src.size()) {
+          skipWS(src, pos);
+          if (src[pos] == ']') { pos++; break; }
+          if (src[pos] == '"') { pos++; rec.task_tags.push_back(parseStr(src, pos)); }
+          else rec.task_tags.push_back("");
+          pos++;
+          skipWS(src, pos);
+          if (pos < src.size() && src[pos] == ',') pos++;
+        }
       } else {
         while (pos < src.size() && src[pos] != ',' && src[pos] != '}') pos++;
       }
@@ -157,6 +170,11 @@ void save(const std::string &filename, const DayMap &days) {
     for (size_t i = 0; i < rec.task_done.size(); i++) {
       f << (rec.task_done[i] ? "true" : "false");
       if (i + 1 < rec.task_done.size()) f << ", ";
+    }
+    f << "],\n      \"task_tags\": [";
+    for (size_t i = 0; i < rec.task_tags.size(); i++) {
+      f << "\"" << escape(rec.task_tags[i]) << "\"";
+      if (i + 1 < rec.task_tags.size()) f << ", ";
     }
     f << "]\n    }";
   }
@@ -290,7 +308,14 @@ auto cellColor = [](int lv) -> Color {
 
 enum class AppFocus { INPUT, TASKS };
 
-struct TodoItem { std::string name; bool is_done = false; };
+struct TodoItem {
+  std::string name;
+  bool is_done = false;
+  std::string tag = "";  // للتاجات مثل URGENT, RUSH, إلخ
+};
+
+
+
 
 int main() {
   const std::string DATA_FILE = "todo_data.json";
@@ -300,8 +325,10 @@ int main() {
   std::vector<TodoItem> tasks;
   if (days_data.count(today)) {
     auto &rec = days_data[today];
-    for (size_t i = 0; i < rec.tasks.size(); i++)
-      tasks.push_back({rec.tasks[i], i < rec.task_done.size() && rec.task_done[i]});
+    for (size_t i = 0; i < rec.tasks.size(); i++) {
+      std::string tag = (i < rec.task_tags.size()) ? rec.task_tags[i] : "";
+      tasks.push_back({rec.tasks[i], i < rec.task_done.size() && rec.task_done[i], tag});
+    }
   }
 
   auto screen = ScreenInteractive::TerminalOutput();
@@ -316,6 +343,7 @@ int main() {
     for (auto &t : tasks) {
       rec.tasks.push_back(t.name);
       rec.task_done.push_back(t.is_done);
+      rec.task_tags.push_back(t.tag);
       if (t.is_done) rec.done++;
     }
     days_data[today] = rec;
@@ -355,7 +383,19 @@ int main() {
         auto lbl  = t.is_done
                       ? text(t.name) | strikethrough | color(Color::GrayDark) | flex
                       : text(t.name) | flex;
-        auto row  = hbox({num, icon, lbl});
+        
+        // إضافة التاج إذا كان موجوداً
+        Element tag_el = separatorEmpty();
+        if (!t.tag.empty()) {
+          Color tag_color = Color::RGB(100, 100, 200);
+          if (t.tag == "URGENT") tag_color = Color::RGB(220, 60, 60);
+          else if (t.tag == "RUSH") tag_color = Color::RGB(220, 120, 60);
+          else if (t.tag == "BUDGET") tag_color = Color::RGB(100, 180, 100);
+          
+          tag_el = text(" " + t.tag + " ") | bgcolor(tag_color) | color(Color::RGB(200, 200, 200));
+        }
+        
+        auto row  = hbox({num, icon, lbl, filler(), tag_el});
         if (sel) row = row | bgcolor(Color::RGB(38, 48, 75)) | bold;
         task_rows.push_back(row | size(HEIGHT, EQUAL, 1));
       }
@@ -375,7 +415,7 @@ int main() {
       if (focus == AppFocus::INPUT) {
         hint = hbox({
           text(" INPUT ") | bgcolor(Color::RGB(50, 80, 180)) | bold,
-          text("  Enter:add   Tab/Down:go to list   H:heatmap   Q:quit") | dim,
+          text("  Enter:add   Tab/Down:go to list   H:heatmap   Q:quit   (use #TAG for tags)") | dim,
         });
       } else {
         hint = hbox({
@@ -385,10 +425,15 @@ int main() {
       }
 
       return vbox({
-        text(" TODO CLI ") | bold | center | color(Color::RGB(120,180,255)),
-        text(today) | center | dim,
+        hbox({
+          text(" TODO CLI ") | bold | color(Color::RGB(120,180,255)),
+          text(" v2.0.0 STABLE ") | dim | color(Color::GrayLight),
+          filler(),
+          text(" CONNECTED_SESSION ") | bgcolor(Color::RGB(30, 100, 50)) | bold | color(Color::GrayLight),
+          text(" " + today + " ") | color(Color::GrayLight),
+        }) | size(HEIGHT, EQUAL, 1),
         separatorEmpty(),
-         renderHeatmap(days_data, today),
+        renderHeatmap(days_data, today),
         separatorEmpty(),
         hbox({
           text(" > ") | color(Color::RGB(57,211,83)),
@@ -415,7 +460,20 @@ int main() {
       if (focus == AppFocus::INPUT) {
         if (e == Event::Return) {
           if (!new_task.empty()) {
-            tasks.push_back({new_task, false});
+            // استخراج التاج إن وجد (بصيغة: task #TAG)
+            std::string tag;
+            size_t hash_pos = new_task.rfind('#');
+            if (hash_pos != std::string::npos && hash_pos > 0) {
+              tag = new_task.substr(hash_pos + 1);
+              // تنظيف التاج من المسافات
+              while (!tag.empty() && std::isspace((unsigned char)tag.back()))
+                tag.pop_back();
+              // تحويل المهمة بدون التاج
+              new_task = new_task.substr(0, hash_pos);
+              while (!new_task.empty() && std::isspace((unsigned char)new_task.back()))
+                new_task.pop_back();
+            }
+            tasks.push_back({new_task, false, tag});
             new_task.clear();
             selected = (int)tasks.size() - 1;
             persist();
