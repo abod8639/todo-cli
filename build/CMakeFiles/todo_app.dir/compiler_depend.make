@@ -50,9 +50,19 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/bits/errno.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/iscanonical.h \
   /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
   /usr/include/bits/locale.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls-macros.h \
+  /usr/include/bits/mathcalls-narrow.h \
+  /usr/include/bits/mathcalls.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
@@ -172,6 +182,7 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/c++/15.2.1/bits/shared_ptr.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
+  /usr/include/c++/15.2.1/bits/specfun.h \
   /usr/include/c++/15.2.1/bits/sstream.tcc \
   /usr/include/c++/15.2.1/bits/std_abs.h \
   /usr/include/c++/15.2.1/bits/std_function.h \
@@ -212,6 +223,7 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/c++/15.2.1/cerrno \
   /usr/include/c++/15.2.1/chrono \
   /usr/include/c++/15.2.1/clocale \
+  /usr/include/c++/15.2.1/cmath \
   /usr/include/c++/15.2.1/compare \
   /usr/include/c++/15.2.1/concepts \
   /usr/include/c++/15.2.1/cstddef \
@@ -260,6 +272,18 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/c++/15.2.1/string \
   /usr/include/c++/15.2.1/string_view \
   /usr/include/c++/15.2.1/system_error \
+  /usr/include/c++/15.2.1/tr1/bessel_function.tcc \
+  /usr/include/c++/15.2.1/tr1/beta_function.tcc \
+  /usr/include/c++/15.2.1/tr1/ell_integral.tcc \
+  /usr/include/c++/15.2.1/tr1/exp_integral.tcc \
+  /usr/include/c++/15.2.1/tr1/gamma.tcc \
+  /usr/include/c++/15.2.1/tr1/hypergeometric.tcc \
+  /usr/include/c++/15.2.1/tr1/legendre_function.tcc \
+  /usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
+  /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
+  /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
+  /usr/include/c++/15.2.1/tr1/special_function_util.h \
   /usr/include/c++/15.2.1/tuple \
   /usr/include/c++/15.2.1/type_traits \
   /usr/include/c++/15.2.1/typeinfo \
@@ -296,6 +320,7 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/linux/stddef.h \
   /usr/include/linux/types.h \
   /usr/include/locale.h \
+  /usr/include/math.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -371,10 +396,6 @@ _deps/ftxui-build/libftxui-component.a:
 
 /usr/include/stdlib.h:
 
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
 /usr/lib/libstdc++.so:
 
 /usr/include/locale.h:
@@ -388,10 +409,6 @@ _deps/ftxui-build/libftxui-component.a:
 /usr/include/gnu/stubs.h:
 
 /usr/include/gnu/stubs-64.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
 
 /usr/include/ctype.h:
 
@@ -427,15 +444,45 @@ CMakeFiles/todo_app.dir/main.cpp.o:
 
 /usr/include/c++/15.2.1/tuple:
 
+/usr/include/c++/15.2.1/tr1/special_function_util.h:
+
+/usr/include/c++/15.2.1/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/15.2.1/tr1/legendre_function.tcc:
+
+/usr/include/c++/15.2.1/tr1/gamma.tcc:
+
+/usr/include/c++/15.2.1/tr1/exp_integral.tcc:
+
+/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
+
+/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
+
 /usr/include/c++/15.2.1/string_view:
 
-/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+/usr/include/c++/15.2.1/string:
 
-/usr/include/c++/15.2.1/bits/concept_check.h:
+/usr/include/c++/15.2.1/streambuf:
 
-/usr/include/c++/15.2.1/bits/monostate.h:
+/usr/include/c++/15.2.1/stdexcept:
+
+/usr/include/c++/15.2.1/stack:
+
+/usr/include/c++/15.2.1/sstream:
+
+/usr/include/c++/15.2.1/pstl/pstl_config.h:
+
+/usr/include/c++/15.2.1/pstl/glue_memory_defs.h:
+
+/usr/include/c++/15.2.1/pstl/execution_defs.h:
+
+/usr/include/c++/15.2.1/ostream:
 
 /usr/include/c++/15.2.1/bits/basic_ios.tcc:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/15.2.1/cerrno:
 
@@ -457,8 +504,6 @@ _deps/ftxui-src/include/ftxui/util/ref.hpp:
 
 /usr/include/bits/wordsize.h:
 
-/usr/include/c++/15.2.1/bits/exception.h:
-
 /usr/include/bits/wctype-wchar.h:
 
 /usr/include/bits/timesize.h:
@@ -467,12 +512,6 @@ _deps/ftxui-src/include/ftxui/util/ref.hpp:
 
 /usr/include/c++/15.2.1/bits/memoryfwd.h:
 
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/c++/15.2.1/bits/char_traits.h:
-
-_deps/ftxui-src/include/ftxui/dom/deprecated.hpp:
-
 /usr/include/c++/15.2.1/bits/stl_stack.h:
 
 /usr/include/stdc-predef.h:
@@ -480,12 +519,6 @@ _deps/ftxui-src/include/ftxui/dom/deprecated.hpp:
 /usr/include/c++/15.2.1/bits/stl_tempbuf.h:
 
 /usr/include/bits/types/struct_tm.h:
-
-/usr/include/c++/15.2.1/ext/atomicity.h:
-
-/usr/include/bits/types/struct_timespec.h:
-
-/usr/include/c++/15.2.1/bits/chrono.h:
 
 _deps/ftxui-src/include/ftxui/screen/screen.hpp:
 
@@ -507,17 +540,51 @@ _deps/ftxui-src/include/ftxui/screen/screen.hpp:
 
 /usr/include/c++/15.2.1/bits/sstream.tcc:
 
-/usr/include/bits/types/__fpos_t.h:
-
-/usr/include/bits/types/clock_t.h:
-
 /usr/include/bits/time64.h:
 
 /usr/include/bits/stdlib-float.h:
 
-/usr/include/bits/types/time_t.h:
-
 _deps/ftxui-src/include/ftxui/dom/take_any_args.hpp:
+
+/usr/include/bits/types/cookie_io_functions_t.h:
+
+/usr/include/c++/15.2.1/cstdlib:
+
+/usr/include/c++/15.2.1/bits/stl_algobase.h:
+
+/usr/lib/libc.so:
+
+/usr/include/c++/15.2.1/tr1/beta_function.tcc:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/c++/15.2.1/bits/atomic_base.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/bits/types/clock_t.h:
+
+/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/bits/mathcalls-macros.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/types/__FILE.h:
 
 _deps/ftxui-src/include/ftxui/util/warn_windows_macro.hpp:
 
@@ -537,35 +604,17 @@ _deps/ftxui-src/include/ftxui/dom/elements.hpp:
 
 _deps/ftxui-src/include/ftxui/dom/linear_gradient.hpp:
 
-/usr/include/bits/types/cookie_io_functions_t.h:
-
-/usr/include/c++/15.2.1/cstdlib:
-
-/usr/include/features.h:
-
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/bits/sched.h:
-
-/usr/include/c++/15.2.1/bits/stl_algobase.h:
-
 _deps/ftxui-src/include/ftxui/screen/image.hpp:
+
+/usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/15.2.1/bits/stl_tree.h:
 
 /usr/include/bits/types/__fpos64_t.h:
 
 /usr/include/asm-generic/errno-base.h:
 
 _deps/ftxui-src/include/ftxui/screen/color.hpp:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/include/c++/15.2.1/bits/atomic_base.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
-
-/usr/include/c++/15.2.1/stack:
 
 /usr/include/bits/waitstatus.h:
 
@@ -593,7 +642,21 @@ _deps/ftxui-src/include/ftxui/dom/selection.hpp:
 
 /usr/include/bits/endianness.h:
 
-/usr/include/c++/15.2.1/bits/charconv.h:
+_deps/ftxui-src/include/ftxui/dom/flexbox_config.hpp:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
+
+_deps/ftxui-src/include/ftxui/dom/direction.hpp:
+
+/usr/include/linux/posix_types.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/c++/15.2.1/bits/utility.h:
+
+/usr/include/bits/iscanonical.h:
+
+/usr/include/bits/flt-eval-method.h:
 
 _deps/ftxui-src/include/ftxui/component/animation.hpp:
 
@@ -617,18 +680,6 @@ _deps/ftxui-src/include/ftxui/component/animation.hpp:
 
 /usr/include/bits/types/struct_sched_param.h:
 
-_deps/ftxui-src/include/ftxui/dom/flexbox_config.hpp:
-
-/usr/include/c++/15.2.1/bits/algorithmfwd.h:
-
-/usr/include/c++/15.2.1/array:
-
-_deps/ftxui-src/include/ftxui/component/screen_interactive.hpp:
-
-/usr/lib/libc.so:
-
-/usr/include/bits/pthreadtypes.h:
-
 /usr/include/bits/struct_rwlock.h:
 
 _deps/ftxui-src/include/ftxui/component/component_base.hpp:
@@ -643,9 +694,25 @@ _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 
 /usr/include/c++/15.2.1/bits/unique_ptr.h:
 
+/usr/include/c++/15.2.1/ratio:
+
+/usr/include/bits/floatn-common.h:
+
 /usr/include/bits/types/mbstate_t.h:
 
 /usr/include/c++/15.2.1/bits/codecvt.h:
+
+_deps/ftxui-src/include/ftxui/dom/deprecated.hpp:
+
+/usr/include/c++/15.2.1/bits/exception.h:
+
+/usr/include/bits/math-vector.h:
+
+/usr/include/c++/15.2.1/bits/char_traits.h:
+
+/usr/include/bits/types/struct_timespec.h:
+
+/usr/include/c++/15.2.1/ext/atomicity.h:
 
 _deps/ftxui-src/include/ftxui/component/component.hpp:
 
@@ -653,33 +720,17 @@ _deps/ftxui-src/include/ftxui/dom/canvas.hpp:
 
 _deps/ftxui-src/include/ftxui/component/component_options.hpp:
 
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
 _deps/ftxui-src/include/ftxui/screen/string.hpp:
 
 /usr/include/c++/15.2.1/bits/new_allocator.h:
-
-/usr/include/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/c++/15.2.1/pstl/pstl_config.h:
 
 _deps/ftxui-src/include/ftxui/component/mouse.hpp:
 
 /home/dexter/todoCLI/main.cpp:
 
 /usr/include/c++/15.2.1/bits/ios_base.h:
-
-/usr/include/c++/15.2.1/chrono:
-
-/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
-
-_deps/ftxui-src/include/ftxui/dom/direction.hpp:
-
-/usr/include/linux/posix_types.h:
-
-/usr/include/bits/types/FILE.h:
-
-/usr/include/c++/15.2.1/bits/utility.h:
 
 /usr/include/c++/15.2.1/unordered_map:
 
@@ -688,8 +739,6 @@ _deps/ftxui-src/include/ftxui/component/captured_mouse.hpp:
 /usr/include/bits/errno.h:
 
 /usr/include/bits/libc-header-start.h:
-
-/usr/include/c++/15.2.1/ostream:
 
 /usr/include/c++/15.2.1/bits/ostream.h:
 
@@ -703,7 +752,7 @@ _deps/ftxui-src/include/ftxui/component/captured_mouse.hpp:
 
 /usr/include/c++/15.2.1/bits/functexcept.h:
 
-/usr/include/c++/15.2.1/streambuf:
+/usr/include/bits/fp-logb.h:
 
 /usr/include/features-time64.h:
 
@@ -720,8 +769,6 @@ _deps/ftxui-src/include/ftxui/component/captured_mouse.hpp:
 /usr/include/bits/types/clockid_t.h:
 
 /usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/c++/15.2.1/pstl/execution_defs.h:
 
 /usr/include/c++/15.2.1/map:
 
@@ -747,6 +794,8 @@ _deps/ftxui-src/include/ftxui/component/captured_mouse.hpp:
 
 /usr/include/bits/endian.h:
 
+/usr/include/math.h:
+
 /usr/include/c++/15.2.1/bits/invoke.h:
 
 _deps/ftxui-src/include/ftxui/screen/terminal.hpp:
@@ -757,25 +806,53 @@ _deps/ftxui-src/include/ftxui/screen/terminal.hpp:
 
 /usr/include/c++/15.2.1/ios:
 
-/usr/include/c++/15.2.1/pstl/glue_memory_defs.h:
-
 _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/c++/15.2.1/atomic:
 
+/usr/include/wctype.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/c++/15.2.1/bits/algorithmfwd.h:
+
+/usr/include/c++/15.2.1/array:
+
+_deps/ftxui-src/include/ftxui/component/screen_interactive.hpp:
+
 /usr/include/bits/long-double.h:
+
+/usr/include/bits/types/time_t.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/c++/15.2.1/bits/charconv.h:
+
+/usr/include/c++/15.2.1/bits/chrono.h:
+
+/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/15.2.1/chrono:
+
+/usr/include/c++/15.2.1/bits/concept_check.h:
+
+/usr/include/c++/15.2.1/bits/monostate.h:
+
+/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
 /usr/include/c++/15.2.1/bits/deque.tcc:
 
 /usr/include/c++/15.2.1/memory:
-
-/usr/include/c++/15.2.1/stdexcept:
 
 /usr/include/c++/15.2.1/bits/erase_if.h:
 
 /usr/lib/crtn.o:
 
 /usr/include/c++/15.2.1/bits/functional_hash.h:
+
+/usr/include/c++/15.2.1/tr1/hypergeometric.tcc:
 
 /usr/include/c++/15.2.1/bits/stl_relops.h:
 
@@ -871,6 +948,8 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h:
 
+/usr/include/c++/15.2.1/bits/specfun.h:
+
 /usr/include/linux/types.h:
 
 /usr/include/c++/15.2.1/bits/std_abs.h:
@@ -907,10 +986,6 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/c++/15.2.1/exception:
 
-/usr/include/c++/15.2.1/bits/stl_tree.h:
-
-/usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h:
-
 /usr/include/c++/15.2.1/bits/streambuf_iterator.h:
 
 /usr/include/bits/typesizes.h:
@@ -936,6 +1011,12 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 /usr/include/c++/15.2.1/bits/version.h:
 
 /usr/include/c++/15.2.1/clocale:
+
+/usr/include/stdint.h:
+
+/usr/include/endian.h:
+
+/usr/include/c++/15.2.1/cmath:
 
 /usr/include/c++/15.2.1/concepts:
 
@@ -981,6 +1062,8 @@ _deps/ftxui-build/libftxui-screen.a:
 
 /usr/include/c++/15.2.1/optional:
 
+/usr/include/bits/mathcalls.h:
+
 /usr/include/c++/15.2.1/bits/stl_queue.h:
 
 /usr/include/c++/15.2.1/iostream:
@@ -988,11 +1071,3 @@ _deps/ftxui-build/libftxui-screen.a:
 /usr/include/c++/15.2.1/ext/aligned_buffer.h:
 
 /usr/include/c++/15.2.1/locale:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/c++/15.2.1/ratio:
-
-/usr/include/c++/15.2.1/sstream:
-
-/usr/include/c++/15.2.1/string:

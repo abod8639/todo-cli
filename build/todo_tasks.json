@@ -1,0 +1,18 @@
+{
+  "days": {
+    "2026-02-22": {
+      "done": 2,
+      "total": 2,
+      "tasks": ["build todo cli", "improve ui ux"],
+      "task_done": [true, true],
+      "task_tags": ["", "", "", "", ""]
+    },
+    "2026-02-23": {
+      "done": 0,
+      "total": 1,
+      "tasks": ["dd"],
+      "task_done": [false],
+      "task_tags": [""]
+    }
+  }
+}

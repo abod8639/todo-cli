@@ -70,10 +70,29 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /usr/include/bits/types/struct_tm.h \
  /usr/include/bits/types/struct_itimerspec.h \
  /usr/include/c++/15.2.1/bits/parse_numbers.h \
- /usr/include/c++/15.2.1/fstream \
- /usr/include/c++/15.2.1/bits/requires_hosted.h \
- /usr/include/c++/15.2.1/istream /usr/include/c++/15.2.1/ios \
- /usr/include/c++/15.2.1/iosfwd /usr/include/c++/15.2.1/bits/stringfwd.h \
+ /usr/include/c++/15.2.1/cmath \
+ /usr/include/c++/15.2.1/bits/requires_hosted.h /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
+ /usr/include/bits/fp-fast.h /usr/include/bits/mathcalls-macros.h \
+ /usr/include/bits/mathcalls-helper-functions.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
+ /usr/include/bits/iscanonical.h /usr/include/c++/15.2.1/bits/specfun.h \
+ /usr/include/c++/15.2.1/tr1/gamma.tcc \
+ /usr/include/c++/15.2.1/tr1/special_function_util.h \
+ /usr/include/c++/15.2.1/tr1/bessel_function.tcc \
+ /usr/include/c++/15.2.1/tr1/beta_function.tcc \
+ /usr/include/c++/15.2.1/tr1/ell_integral.tcc \
+ /usr/include/c++/15.2.1/tr1/exp_integral.tcc \
+ /usr/include/c++/15.2.1/tr1/hypergeometric.tcc \
+ /usr/include/c++/15.2.1/tr1/legendre_function.tcc \
+ /usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
+ /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
+ /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
+ /usr/include/c++/15.2.1/fstream /usr/include/c++/15.2.1/istream \
+ /usr/include/c++/15.2.1/ios /usr/include/c++/15.2.1/iosfwd \
+ /usr/include/c++/15.2.1/bits/stringfwd.h \
  /usr/include/c++/15.2.1/bits/memoryfwd.h \
  /usr/include/c++/15.2.1/bits/postypes.h /usr/include/c++/15.2.1/cwchar \
  /usr/include/wchar.h \
@@ -183,7 +202,7 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /usr/include/c++/15.2.1/bits/stl_vector.h \
  /usr/include/c++/15.2.1/bits/stl_bvector.h \
  /usr/include/c++/15.2.1/bits/vector.tcc \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/canvas.hpp \
  /usr/include/c++/15.2.1/functional \
  /usr/include/c++/15.2.1/bits/std_function.h \
  /usr/include/c++/15.2.1/unordered_map \
@@ -192,6 +211,11 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /usr/include/c++/15.2.1/bits/hashtable_policy.h \
  /usr/include/c++/15.2.1/bits/enable_special_members.h \
  /usr/include/c++/15.2.1/array /usr/include/c++/15.2.1/compare \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/color.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/image.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/box.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/pixel.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component.hpp \
  /usr/include/c++/15.2.1/memory \
  /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/15.2.1/bits/align.h \
@@ -211,11 +235,6 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component_base.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/captured_mouse.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/elements.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/canvas.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/color.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/image.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/box.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/pixel.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/direction.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/flexbox_config.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/linear_gradient.hpp \
