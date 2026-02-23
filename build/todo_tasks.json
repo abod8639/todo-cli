@@ -1,17 +1,16 @@
 {
   "days": {
-
     "2026-02-22": {
-      "done": 2,
-      "total": 2,
-      "tasks": ["build todo cli", "improve ui ux"],
-      "task_done": [true, true],
-      "task_tags": ["", "", "", "", "", "", "2026-02-22", "", "done", "", "total", "", "tasks", "", "dd", "task_done", "", "", "", "", "", "", "", "", "", "", "", "2026-02-22", "", "done", "", "total", "", "tasks", "", "asxas", "task_done", "", "", "", "", "", "", "", "", "", ""]
+      "done": 3,
+      "total": 3,
+      "tasks": ["Build todo cli", "Improve UI", "Test save"],
+      "task_done": [true, true, true],
+      "task_tags": ["", "URGENT", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "';, ;zx', zx", "hhhhhHHhokj", ";lsmclsdmcdslkchH", "zxzxz", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "ssssssssssssssssss", "task_done", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "d;skjdsc", "lmsdlkcmsdv", "lkncklsdnlksd", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", ";lasmxc;slamcs", "task_done", "", "", "", "", "", "", "", "", "", ""]
     },
     "2026-02-23": {
-      "done": 1,
+      "done": 0,
       "total": 1,
-      "tasks": ["dede"],
+      "tasks": ["build todo cli"],
       "task_done": [false],
       "task_tags": [""]
     }

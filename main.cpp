@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <chrono>
-#include <cmath>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
@@ -213,14 +212,20 @@ static std::string monthShort(const std::string &date) {
 Element renderHeatmap(const json::DayMap &data, const std::string &today) {
   const int WEEKS = 20;
 
-auto cellColor = [](int lv) -> Color {
+  auto cellColor = [](int lv) -> Color {
     switch (lv) {
-      case 0: return Color::RGB(35, 35, 45);    
-      case 1: return Color::RGB(0, 75, 30);     
-      case 2: return Color::RGB(0, 155, 60);    
-      case 3: return Color::RGB(0, 215, 80);    
-      case 4: return Color::RGB(80, 255, 120);  
-      default: return Color::RGB(80, 255, 120);
+    case 0:
+      return Color::RGB(35, 35, 45);
+    case 1:
+      return Color::RGB(0, 75, 30);
+    case 2:
+      return Color::RGB(0, 155, 60);
+    case 3:
+      return Color::RGB(0, 215, 80);
+    case 4:
+      return Color::RGB(80, 255, 120);
+    default:
+      return Color::RGB(80, 255, 120);
     }
   };
 
@@ -313,9 +318,8 @@ enum class AppFocus { INPUT, TASKS, HABITS };
 struct TodoItem {
   std::string name;
   bool is_done = false;
-  std::string tag = "";  // للتاجات مثل URGENT, RUSH, إلخ
+  std::string tag = "";
 };
-
 
 int main() {
   const std::string TASKS_FILE = "todo_tasks.json";
@@ -486,55 +490,66 @@ int main() {
         });
       } else if (focus == AppFocus::TASKS) {
         hint = hbox({
-          text(" TASKS ") | bgcolor(Color::RGB(30, 100, 50)) | bold,
-          text("  up/down jk:move   Space:toggle   D:delete   Esc/Tab:back   Ctrl+L:habits   Q:quit") | dim,
+            text(" TASKS ") | bgcolor(Color::RGB(30, 100, 50)) | bold,
+            text("  up/down jk:move   Space:toggle   Ctrl+D:delete   "
+                 "Esc/Tab:back   Ctrl+L:habits   Q:quit") |
+                dim,
         });
       } else {
         hint = hbox({
-          text(" HABITS ") | bgcolor(Color::RGB(100, 50, 100)) | bold,
-          text("  up/down jk:move   Space:toggle   D:delete   Esc/Tab:back   Tab:tasks   Q:quit") | dim,
+            text(" HABITS ") | bgcolor(Color::RGB(100, 50, 100)) | bold,
+            text("  up/down jk:move   Space:toggle   Ctrl+D:delete   "
+                 "Esc/Tab:back   Ctrl+L:tasks   Q:quit") |
+                dim,
         });
       }
 
       return vbox({
-        hbox({
-          text(" TODO CLI ") | bold | color(Color::RGB(120,180,255)),
-          text(" v2.1.0 HABITS ") | dim | color(Color::GrayLight),
-          filler(),
-          text(" CONNECTED_SESSION ") | bgcolor(Color::RGB(30, 100, 50)) | bold | color(Color::GrayLight),
-          text(" " + today + " ") | color(Color::GrayLight),
-        }) | size(HEIGHT, EQUAL, 1),
-        separatorEmpty(),
-        renderHeatmap(tasks_data, today),
-        separatorEmpty(),
-        hbox({
-          text(" TASKS > ") | color(Color::RGB(57,211,83)),
-          gauge(tasks_progress) | color(
-            tasks_progress < 0.3f ? Color::RGB(200,60,60) :
-            tasks_progress < 0.7f ? Color::Yellow :
-            Color::RGB(57,211,83)) | flex,
-          text(" " + tasks_pct + " ") | color(Color::GrayLight),
-        }),
-        separatorEmpty(),
-        task_box,
-        separatorEmpty(),
-        hbox({
-          text(" HABITS > ") | color(Color::RGB(150,100,200)),
-          gauge(habits_progress) | color(
-            habits_progress < 0.3f ? Color::RGB(200,60,60) :
-            habits_progress < 0.7f ? Color::Yellow :
-            Color::RGB(57,211,83)) | flex,
-          text(" " + habits_pct + " ") | color(Color::GrayLight),
-        }),
-        separatorEmpty(),
-        habit_box,
-        separatorEmpty(),
-        input_row,
-        separatorEmpty(),
-        hint,
-      }) |
-      borderStyled(DOUBLE, Color::RGB(48, 60, 120)) |
-      size(WIDTH, GREATER_THAN, 70) | center;
+                 hbox({
+                     text(" TODO CLI ") | bold |
+                         color(Color::RGB(120, 180, 255)),
+                     text(" v2.1.0 ") | dim | color(Color::GrayLight),
+                     filler(),
+                     text(" CONNECTED_SESSION ") |
+                         bgcolor(Color::RGB(30, 100, 50)) | bold |
+                         color(Color::GrayLight),
+                     text(" " + today + " ") | color(Color::GrayLight),
+                 }) | size(HEIGHT, EQUAL, 1),
+                 separatorEmpty(),
+                 renderHeatmap(tasks_data, today),
+                 separatorEmpty(),
+                 hbox({
+                     text(" TASKS > ") | color(Color::RGB(57, 211, 83)),
+                     gauge(tasks_progress) |
+                         color(tasks_progress < 0.3f ? Color::RGB(200, 60, 60)
+                               : tasks_progress < 0.7f
+                                   ? Color::Yellow
+                                   : Color::RGB(57, 211, 83)) |
+                         flex,
+                     text(" " + tasks_pct + " ") | color(Color::GrayLight),
+                 }),
+                 separatorEmpty(),
+                 task_box,
+                 separatorEmpty(),
+                 hbox({
+                     text(" HABITS > ") | color(Color::RGB(150, 100, 200)),
+                     gauge(habits_progress) |
+                         color(habits_progress < 0.3f ? Color::RGB(200, 60, 60)
+                               : habits_progress < 0.7f
+                                   ? Color::Yellow
+                                   : Color::RGB(57, 211, 83)) |
+                         flex,
+                     text(" " + habits_pct + " ") | color(Color::GrayLight),
+                 }),
+                 separatorEmpty(),
+                 habit_box,
+                 separatorEmpty(),
+                 input_row,
+                 separatorEmpty(),
+                 hint,
+             }) |
+             borderStyled(DOUBLE, Color::RGB(48, 60, 120)) |
+             size(WIDTH, GREATER_THAN, 70) | center;
     }),
 
     [&](Event e) -> bool {
@@ -613,7 +628,23 @@ int main() {
           persist();
           return true;
         }
-        if (e == Event::Character('d')) {
+        // Toggle habit or task  with 'h'
+        if (e == Event::Character('h')) {
+          TodoItem item = tasks[selected];
+          tasks.erase(tasks.begin() + selected);
+          if (!tasks.empty())
+            selected = std::min(selected, (int)tasks.size() - 1);
+          else
+            selected = 0;
+
+          item.is_done = false; // Reset done status when moving to habits
+          habits.push_back(item);
+          selected = (int)habits.size() - 1;
+          focus = AppFocus::HABITS;
+          persist();
+          return true;
+        }
+        if (e == Event::Character('\x04')) {
           tasks.erase(tasks.begin() + selected);
           if (!tasks.empty())
             selected = std::min(selected, (int)tasks.size() - 1);
@@ -638,8 +669,7 @@ int main() {
       // HABITS MODE
       if (focus == AppFocus::HABITS) {
         if (e == Event::Escape || e == Event::Tab) {
-          focus = AppFocus::TASKS;
-          selected = 0;
+          focus = AppFocus::INPUT;
           return true;
         }
         if (habits.empty()) return true;
@@ -666,7 +696,7 @@ int main() {
           persist();
           return true;
         }
-        if (e == Event::Tab && !tasks.empty()) {
+        if (e == Event::CtrlL && !tasks.empty()) {
           focus = AppFocus::TASKS;
           selected = 0;
           return true;

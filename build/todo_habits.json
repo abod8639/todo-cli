@@ -1,5 +1,12 @@
 {
   "days": {
+    "2026-02-22": {
+      "done": 3,
+      "total": 3,
+      "tasks": ["aazx zx", "hhhhhHHhokj", ";lsmclsdmcdslkchH"],
+      "task_done": [true, true, true],
+      "task_tags": ["", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", ""]
+    },
     "2026-02-23": {
       "done": 0,
       "total": 0,
