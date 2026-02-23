@@ -202,7 +202,7 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /usr/include/c++/15.2.1/bits/stl_vector.h \
  /usr/include/c++/15.2.1/bits/stl_bvector.h \
  /usr/include/c++/15.2.1/bits/vector.tcc \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/canvas.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component.hpp \
  /usr/include/c++/15.2.1/functional \
  /usr/include/c++/15.2.1/bits/std_function.h \
  /usr/include/c++/15.2.1/unordered_map \
@@ -211,11 +211,6 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /usr/include/c++/15.2.1/bits/hashtable_policy.h \
  /usr/include/c++/15.2.1/bits/enable_special_members.h \
  /usr/include/c++/15.2.1/array /usr/include/c++/15.2.1/compare \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/color.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/image.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/box.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/pixel.hpp \
- /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component.hpp \
  /usr/include/c++/15.2.1/memory \
  /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/15.2.1/bits/align.h \
@@ -235,6 +230,11 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/component_base.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/component/captured_mouse.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/elements.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/canvas.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/color.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/image.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/box.hpp \
+ /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/screen/pixel.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/direction.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/flexbox_config.hpp \
  /home/dexter/todoCLI/build/_deps/ftxui-src/include/ftxui/dom/linear_gradient.hpp \
