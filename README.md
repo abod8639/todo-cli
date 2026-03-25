@@ -4,9 +4,10 @@ A professional command-line application for managing daily tasks and habits with
 
 ---
 
-## demo
-
-![demo](assets/image.png)
+<p align="center">
+<img src="assets/image.png" width="40%">
+<img src="assets/image1.png" width="40%">
+</p>
 
 
 ## PROJECT OVERVIEW
