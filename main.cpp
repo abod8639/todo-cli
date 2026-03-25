@@ -1,4 +1,6 @@
-// Fixed: AppFocus rename + removed BackTab
+// Todo CLI v3.0 — Professional rewrite
+// Pages: TASKS page / HABITS page (separate views)
+// Keyboard conflicts in input mode fully resolved
 
 #include <algorithm>
 #include <chrono>
@@ -18,12 +20,16 @@
 
 using namespace ftxui;
 
+// ─────────────────────────────────────────────
+//  JSON (minimal hand-rolled, no deps)
+// ─────────────────────────────────────────────
 namespace json {
 
 std::string escape(const std::string &s) {
   std::string out;
   for (char c : s) {
-    if (c == '"')       out += "\\\"";
+    if (c == '"')
+      out += "\\\"";
     else if (c == '\\') out += "\\\\";
     else if (c == '\n') out += "\\n";
     else                out += c;
@@ -36,7 +42,7 @@ struct DayRecord {
   int total = 0;
   std::vector<std::string> tasks;
   std::vector<bool>        task_done;
-  std::vector<std::string> task_tags;  // التاجات لكل مهمة
+  std::vector<std::string> task_tags;
 };
 
 using DayMap = std::map<std::string, DayRecord>;
@@ -51,10 +57,12 @@ static std::string parseStr(const std::string &src, size_t &pos) {
     char c = src[pos++];
     if (c == '\\' && pos < src.size()) {
       char e = src[pos++];
-      if (e == '"')       val += '"';
+      if (e == '"')
+        val += '"';
       else if (e == '\\') val += '\\';
       else if (e == 'n')  val += '\n';
-      else val += e;
+      else
+        val += e;
     } else if (c == '"') break;
     else val += c;
   }
@@ -121,9 +129,14 @@ DayMap load(const std::string &filename) {
         while (pos < src.size()) {
           skipWS(src, pos);
           if (src[pos] == ']') { pos++; break; }
-          if (src.substr(pos, 4) == "true")  { rec.task_done.push_back(true);  pos += 4; }
-          else if (src.substr(pos, 5) == "false") { rec.task_done.push_back(false); pos += 5; }
-          else pos++;
+          if (src.substr(pos, 4) == "true") {
+            rec.task_done.push_back(true);
+            pos += 4;
+          } else if (src.substr(pos, 5) == "false") {
+            rec.task_done.push_back(false);
+            pos += 5;
+          } else
+            pos++;
           skipWS(src, pos);
           if (pos < src.size() && src[pos] == ',') pos++;
         }
@@ -184,6 +197,9 @@ void save(const std::string &filename, const DayMap &days) {
 
 } // namespace json
 
+// ─────────────────────────────────────────────
+//  Helpers
+// ─────────────────────────────────────────────
 static std::string todayStr() {
   auto now = std::chrono::system_clock::now();
   auto tt  = std::chrono::system_clock::to_time_t(now);
@@ -209,6 +225,9 @@ static std::string monthShort(const std::string &date) {
   return m[tm.tm_mon];
 }
 
+// ─────────────────────────────────────────────
+//  Heatmap
+// ─────────────────────────────────────────────
 Element renderHeatmap(const json::DayMap &data, const std::string &today) {
   const int WEEKS = 20;
 
@@ -222,8 +241,6 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
       return Color::RGB(0, 155, 60);
     case 3:
       return Color::RGB(0, 215, 80);
-    case 4:
-      return Color::RGB(80, 255, 120);
     default:
       return Color::RGB(80, 255, 120);
     }
@@ -234,9 +251,12 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
     if (it == data.end() || it->second.total == 0) return 0;
     float r = (float)it->second.done / it->second.total;
     if (r <= 0.0f)  return 0;
-    if (r < 0.25f) return 1;
-    if (r < 0.50f) return 2;
-    if (r < 0.75f) return 3;
+    if (r < 0.25f)
+      return 1;
+    if (r < 0.50f)
+      return 2;
+    if (r < 0.75f)
+      return 3;
     return 4;
   };
 
@@ -256,7 +276,7 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
   }
 
   Elements month_row;
-  month_row.push_back(text("    ")); 
+  month_row.push_back(text("    "));
   std::string last_m;
   for (int c = 0; c < WEEKS; c++) {
     std::string rep;
@@ -266,7 +286,7 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
       month_row.push_back(text(m) | color(Color::GrayLight));
       last_m = m;
     } else {
-      month_row.push_back(text("  ")); 
+      month_row.push_back(text("  "));
     }
   }
 
@@ -280,18 +300,16 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
     for (int c = 0; c < WEEKS; c++) {
       const std::string &d = grid[c][r];
       if (d.empty()) {
-        row_els.push_back(text("  ")); 
+        row_els.push_back(text("  "));
         continue;
       }
-
       Element cell;
-      if (d > today) {
+      if (d > today)
         cell = text("∙ ") | color(Color::RGB(40, 44, 52));
-      } else if (d == today) {
-        cell = text("■ ") | color(Color::RGB(255, 215, 0)) | bold; 
-      } else {
+      else if (d == today)
+        cell = text("■ ") | color(Color::RGB(255, 215, 0)) | bold;
+      else
         cell = text("■ ") | color(cellColor(level(d)));
-      }
       row_els.push_back(cell);
     }
     all_rows.push_back(hbox(row_els));
@@ -310,10 +328,19 @@ Element renderHeatmap(const json::DayMap &data, const std::string &today) {
     text("■ Today ") | color(Color::RGB(255, 215, 0)) | bold,
   }) | color(Color::GrayLight));
 
-  return vbox(all_rows) | borderStyled(ROUNDED, Color::RGB(56, 62, 71)) | size(HEIGHT, GREATER_THAN, 12);
+  return vbox(all_rows) | borderStyled(ROUNDED, Color::RGB(56, 62, 71)) |
+         size(HEIGHT, GREATER_THAN, 12);
 }
 
-enum class AppFocus { INPUT, TASKS, HABITS };
+// ─────────────────────────────────────────────
+//  App state
+// ─────────────────────────────────────────────
+
+// AppPage — which page is active (not which widget is focused)
+enum class AppPage { TASKS, HABITS };
+
+// InputMode — whether the input field is active (typing)
+enum class InputMode { ACTIVE, INACTIVE };
 
 struct TodoItem {
   std::string name;
@@ -321,13 +348,67 @@ struct TodoItem {
   std::string tag = "";
 };
 
+// ─────────────────────────────────────────────
+//  Shared rendering helpers
+// ─────────────────────────────────────────────
+static Element makeTagBadge(const std::string &tag, bool isHabit) {
+  if (tag.empty())
+    return separatorEmpty();
+  Color c = isHabit ? (tag == "DAILY"    ? Color::RGB(60, 120, 200)
+                       : tag == "WEEKLY" ? Color::RGB(130, 80, 200)
+                                         : Color::RGB(80, 100, 180))
+                    : (tag == "URGENT"   ? Color::RGB(220, 60, 60)
+                       : tag == "RUSH"   ? Color::RGB(220, 120, 60)
+                       : tag == "BUDGET" ? Color::RGB(80, 160, 80)
+                                         : Color::RGB(80, 100, 180));
+  return text(" " + tag + " ") | bgcolor(c) | color(Color::White) | bold;
+}
+
+static Element makeItemRow(const TodoItem &item, int idx, bool selected) {
+  auto num =
+      text(" " + std::to_string(idx + 1) + ". ") | color(Color::GrayLight);
+  auto icon = item.is_done ? text(" ✓ ") | color(Color::RGB(57, 211, 83)) | bold
+                           : text(" ○ ") | color(Color::RGB(200, 200, 80));
+  auto lbl = item.is_done ? text(item.name) | strikethrough |
+                                color(Color::RGB(90, 90, 90)) | flex
+                          : text(item.name) | flex;
+
+  auto row = hbox({num, icon, lbl, filler()});
+  if (selected)
+    row = row | bgcolor(Color::RGB(35, 50, 80)) | bold;
+  return row | size(HEIGHT, EQUAL, 1);
+}
+
+// ─────────────────────────────────────────────
+//  Progress bar helper
+// ─────────────────────────────────────────────
+static std::pair<int, int> countProgress(const std::vector<TodoItem> &items) {
+  int done = 0;
+  for (auto &it : items)
+    if (it.is_done)
+      done++;
+  return {done, (int)items.size()};
+}
+
+static Color progressColor(float r) {
+  if (r < 0.3f)
+    return Color::RGB(200, 60, 60);
+  if (r < 0.7f)
+    return Color::Yellow;
+  return Color::RGB(57, 211, 83);
+}
+
+// ─────────────────────────────────────────────
+//  MAIN
+// ─────────────────────────────────────────────
 int main() {
   const std::string TASKS_FILE = "todo_tasks.json";
   const std::string HABITS_FILE = "todo_habits.json";
-  json::DayMap      tasks_data = json::load(TASKS_FILE);
+  json::DayMap tasks_data = json::load(TASKS_FILE);
   json::DayMap      habits_data = json::load(HABITS_FILE);
-  std::string       today     = todayStr();
+  std::string today = todayStr();
 
+  // Load today's tasks
   std::vector<TodoItem> tasks;
   if (tasks_data.count(today)) {
     auto &rec = tasks_data[today];
@@ -337,6 +418,7 @@ int main() {
     }
   }
 
+  // Load today's habits
   std::vector<TodoItem> habits;
   if (habits_data.count(today)) {
     auto &rec = habits_data[today];
@@ -348,370 +430,473 @@ int main() {
 
   auto screen = ScreenInteractive::TerminalOutput();
 
-  std::string new_task;
-  int         selected     = 0;
-  AppFocus    focus        = AppFocus::INPUT;
+  // ── State ──────────────────────────────────
+  AppPage page = AppPage::TASKS;           // which page is visible
+  InputMode inputMode = InputMode::ACTIVE; // is input box focused
+  int task_sel = 0;                        // selected index in tasks list
+  int habit_sel = 0;     // selected index in habits list (independent!)
+  std::string new_input; // text in input box
 
+  // ── Persist ────────────────────────────────
   auto persist = [&] {
-    // Save tasks
     json::DayRecord task_rec;
     task_rec.total = (int)tasks.size();
     for (auto &t : tasks) {
       task_rec.tasks.push_back(t.name);
       task_rec.task_done.push_back(t.is_done);
       task_rec.task_tags.push_back(t.tag);
-      if (t.is_done) task_rec.done++;
+      if (t.is_done)
+        task_rec.done++;
     }
     tasks_data[today] = task_rec;
     json::save(TASKS_FILE, tasks_data);
 
-    // Save habits
-    json::DayRecord habits_rec;
-    habits_rec.total = (int)habits.size();
+    json::DayRecord hab_rec;
+    hab_rec.total = (int)habits.size();
     for (auto &h : habits) {
-      habits_rec.tasks.push_back(h.name);
-      habits_rec.task_done.push_back(h.is_done);
-      habits_rec.task_tags.push_back(h.tag);
-      if (h.is_done) habits_rec.done++;
+      hab_rec.tasks.push_back(h.name);
+      hab_rec.task_done.push_back(h.is_done);
+      hab_rec.task_tags.push_back(h.tag);
+      if (h.is_done)
+        hab_rec.done++;
     }
-    habits_data[today] = habits_rec;
+    habits_data[today] = hab_rec;
     json::save(HABITS_FILE, habits_data);
   };
 
-  auto raw_input = Input(&new_task, " Add task/habit (use +H prefix for habits) and press Enter...");
+  // ── Input component ────────────────────────
+  // Placeholder text changes per page
+  auto getPlaceholder = [&]() -> std::string {
+    if (page == AppPage::TASKS)
+      return "  Add task... (#TAG optional, e.g. Buy milk #URGENT) — Enter to "
+             "add";
+    else
+      return "  Add habit... (#DAILY or #WEEKLY optional) — Enter to add";
+  };
 
+  auto raw_input = Input(&new_input, getPlaceholder());
+
+  // ─────────────────────────────────────────
+  //  RENDERER
+  // ─────────────────────────────────────────
   auto root = CatchEvent(
-    Renderer(raw_input, [&] {
-      int tasks_total = (int)tasks.size();
-      int tasks_done  = 0;
-      for (auto &t : tasks) if (t.is_done) tasks_done++;
-      float tasks_progress = tasks_total > 0 ? (float)tasks_done / tasks_total : 0.f;
-      std::string tasks_pct = std::to_string(tasks_done) + "/" + std::to_string(tasks_total) +
-                              "  " + std::to_string((int)(tasks_progress * 100)) + "%";
+      Renderer(
+          raw_input,
+          [&] {
+            bool inInput = (inputMode == InputMode::ACTIVE);
 
-      int habits_total = (int)habits.size();
-      int habits_done  = 0;
-      for (auto &h : habits) if (h.is_done) habits_done++;
-      float habits_progress = habits_total > 0 ? (float)habits_done / habits_total : 0.f;
-      std::string habits_pct = std::to_string(habits_done) + "/" + std::to_string(habits_total) +
-                               "  " + std::to_string((int)(habits_progress * 100)) + "%";
+            // ── TASKS PAGE ──────────────────────────────────────────────
+            if (page == AppPage::TASKS) {
+              auto [tasks_done, tasks_total] = countProgress(tasks);
+              float tp =
+                  tasks_total > 0 ? (float)tasks_done / tasks_total : 0.f;
+              std::string tpct = std::to_string(tasks_done) + "/" +
+                                 std::to_string(tasks_total) + "  " +
+                                 std::to_string((int)(tp * 100)) + "%";
 
-      bool input_focused = (focus == AppFocus::INPUT);
-      auto input_row =
-        hbox({
-          text(" + ") | color(Color::Yellow),
-          text(" COMMAND: ") | color(Color::GrayDark),
-          raw_input->Render() | flex,
-          text(input_focused ? " [Enter] " : " [Tab] ") | dim,
-        }) |
-        borderStyled(ROUNDED,
-          input_focused ? Color::RGB(120, 180, 255) : Color::RGB(60, 70, 100));
+              // Task list
+              Elements task_rows;
+              for (int i = 0; i < tasks_total; i++) {
+                bool sel = !inInput && (i == task_sel);
+                auto row = makeItemRow(tasks[i], i, sel);
+                // append tag
+                auto tag_el = makeTagBadge(tasks[i].tag, false);
+                task_rows.push_back(hbox({row | flex, tag_el}) |
+                                    size(HEIGHT, EQUAL, 1));
+              }
 
-      bool tasks_focused = (focus == AppFocus::TASKS);
-      Elements task_rows;
-      for (int i = 0; i < tasks_total; i++) {
-        auto &t   = tasks[i];
-        bool  sel = tasks_focused && (i == selected);
-        auto num  = text(" " + std::to_string(i + 1) + ". ") | color(Color::GrayLight);
-        auto icon = t.is_done
-                      ? text(" v ") | color(Color::RGB(57, 211, 83))
-                      : text(" o ") | color(Color::Yellow);
-        auto lbl  = t.is_done
-                      ? text(t.name) | strikethrough | color(Color::GrayDark) | flex
-                      : text(t.name) | flex;
-        
-        Element tag_el = separatorEmpty();
-        if (!t.tag.empty()) {
-          Color tag_color = Color::RGB(100, 100, 200);
-          if (t.tag == "URGENT") tag_color = Color::RGB(220, 60, 60);
-          else if (t.tag == "RUSH") tag_color = Color::RGB(220, 120, 60);
-          else if (t.tag == "BUDGET") tag_color = Color::RGB(100, 180, 100);
-          
-          tag_el = text(" " + t.tag + " ") | bgcolor(tag_color) | color(Color::RGB(200, 200, 200));
+              Element task_area = task_rows.empty()
+                                      ? vbox({separatorEmpty(),
+                                              text("  No tasks yet — type "
+                                                   "below and press Enter") |
+                                                  dim | center,
+                                              separatorEmpty()})
+                                      : vbox(task_rows);
+
+              // Border highlights: blue when list focused, else dimmed
+              Color list_border =
+                  inInput ? Color::RGB(48, 60, 100) : Color::RGB(80, 140, 255);
+
+              auto task_box = task_area | frame |
+                              size(HEIGHT, GREATER_THAN, 4) |
+                              borderStyled(ROUNDED, list_border);
+
+              // Input box
+              Color inp_border =
+                  inInput ? Color::RGB(80, 140, 255) : Color::RGB(48, 60, 100);
+              auto input_row = hbox({
+                                   text(inInput ? " ›› " : "    ") |
+                                       color(Color::RGB(255, 200, 50)) | bold,
+                                   raw_input->Render() | flex,
+                                   text(inInput ? " Enter " : " i ") | dim,
+                               }) |
+                               borderStyled(ROUNDED, inp_border);
+
+              // Hint bar
+              Element hint;
+              if (inInput) {
+                hint = hbox({
+                    text(" INSERT ") | bgcolor(Color::RGB(30, 80, 180)) | bold |
+                        color(Color::White),
+                    text("  Enter:add   Esc:list mode   Ctrl+H:habits page   "
+                         "Q:quit   #TAG for tags") |
+                        dim,
+                });
+              } else {
+                hint = hbox({
+                    text(" TASKS  ") | bgcolor(Color::RGB(20, 100, 50)) | bold |
+                        color(Color::White),
+                    text(
+                        "  ↑↓/jk:move   Space:toggle   D:delete   "
+                        "M:move→habits   I/ins:type   Ctrl+H:habits   Q:quit") |
+                        dim,
+                });
+              }
+
+              // Page tab bar
+              auto tab_bar = hbox({
+                  text(" ◆ TASKS ") | bgcolor(Color::RGB(20, 100, 50)) |
+                      color(Color::White) | bold,
+                  text("   HABITS ") | color(Color::RGB(90, 90, 90)) | dim,
+                  filler(),
+                  text(" Ctrl+H → habits ") | dim | color(Color::GrayDark),
+              });
+
+              // Header
+              auto header =
+                  hbox({
+                      text(" ✦ TODO CLI ") | bold |
+                          color(Color::RGB(120, 180, 255)),
+                      text(" v3.0 ") | dim | color(Color::GrayLight),
+                      filler(),
+                      text(" " + today + " ") | color(Color::GrayLight),
+                  }) |
+                  size(HEIGHT, EQUAL, 1);
+
+              // Progress bar
+              auto prog_bar = hbox({
+                  text(" TASKS > ") | color(Color::RGB(57, 211, 83)) | bold,
+                  gauge(tp) | color(progressColor(tp)) | flex,
+                  text(" " + tpct + " ") | color(Color::GrayLight),
+              });
+
+              return vbox({
+                         header,
+                         separator() | color(Color::RGB(48, 60, 120)),
+                         tab_bar,
+                         separator() | color(Color::RGB(48, 60, 120)),
+                         renderHeatmap(tasks_data, today),
+                         separatorEmpty(),
+                         prog_bar,
+                         separatorEmpty(),
+                         task_box,
+                         separatorEmpty(),
+                         input_row,
+                         separatorEmpty(),
+                         hint,
+                     }) |
+                     borderStyled(DOUBLE, Color::RGB(40, 55, 110)) |
+                     size(WIDTH, GREATER_THAN, 72) | center;
+            }
+
+            // ── HABITS PAGE ──────────────────────────────────────────────
+            else {
+              auto [hab_done, hab_total] = countProgress(habits);
+              float hp = hab_total > 0 ? (float)hab_done / hab_total : 0.f;
+              std::string hpct = std::to_string(hab_done) + "/" +
+                                 std::to_string(hab_total) + "  " +
+                                 std::to_string((int)(hp * 100)) + "%";
+
+              // Habit list
+              Elements hab_rows;
+              for (int i = 0; i < hab_total; i++) {
+                bool sel = !inInput && (i == habit_sel);
+                auto row = makeItemRow(habits[i], i, sel);
+                auto tag_el = makeTagBadge(habits[i].tag, true);
+                hab_rows.push_back(hbox({row | flex, tag_el}) |
+                                   size(HEIGHT, EQUAL, 1));
+              }
+
+              Element hab_area = hab_rows.empty()
+                                     ? vbox({separatorEmpty(),
+                                             text("  No habits yet — type "
+                                                  "below and press Enter") |
+                                                 dim | center,
+                                             separatorEmpty()})
+                                     : vbox(hab_rows);
+
+              Color list_border =
+                  inInput ? Color::RGB(60, 40, 100) : Color::RGB(180, 100, 255);
+
+              auto hab_box = hab_area | frame | size(HEIGHT, GREATER_THAN, 4) |
+                             borderStyled(ROUNDED, list_border);
+
+              // Input box
+              Color inp_border =
+                  inInput ? Color::RGB(180, 100, 255) : Color::RGB(60, 40, 100);
+              auto input_row = hbox({
+                                   text(inInput ? " ›› " : "    ") |
+                                       color(Color::RGB(200, 120, 255)) | bold,
+                                   raw_input->Render() | flex,
+                                   text(inInput ? " Enter " : " i ") | dim,
+                               }) |
+                               borderStyled(ROUNDED, inp_border);
+
+              // Hint bar
+              Element hint;
+              if (inInput) {
+                hint = hbox({
+                    text(" INSERT ") | bgcolor(Color::RGB(100, 30, 160)) |
+                        bold | color(Color::White),
+                    text("  Enter:add   Esc:list mode   Ctrl+T:tasks page   "
+                         "Q:quit   #DAILY #WEEKLY") |
+                        dim,
+                });
+              } else {
+                hint = hbox({
+                    text(" HABITS ") | bgcolor(Color::RGB(100, 30, 160)) |
+                        bold | color(Color::White),
+                    text("  ↑↓/jk:move   Space:toggle   D:delete   "
+                         "M:move→tasks   I/ins:type   Ctrl+T:tasks   Q:quit") |
+                        dim,
+                });
+              }
+
+              // Page tab bar
+              auto tab_bar = hbox({
+                  text("   TASKS  ") | color(Color::RGB(90, 90, 90)) | dim,
+                  text(" ◆ HABITS ") | bgcolor(Color::RGB(80, 30, 130)) |
+                      color(Color::White) | bold,
+                  filler(),
+                  text(" Ctrl+T → tasks ") | dim | color(Color::GrayDark),
+              });
+
+              // Header
+              auto header =
+                  hbox({
+                      text(" ✦ TODO CLI ") | bold |
+                          color(Color::RGB(200, 140, 255)),
+                      text(" v3.0 ") | dim | color(Color::GrayLight),
+                      filler(),
+                      text(" " + today + " ") | color(Color::GrayLight),
+                  }) |
+                  size(HEIGHT, EQUAL, 1);
+
+              // Progress bar
+              auto prog_bar = hbox({
+                  text(" HABITS > ") | color(Color::RGB(180, 100, 255)) | bold,
+                  gauge(hp) | color(progressColor(hp)) | flex,
+                  text(" " + hpct + " ") | color(Color::GrayLight),
+              });
+
+              // Habit heatmap (habits_data)
+              return vbox({
+                         header,
+                         separator() | color(Color::RGB(80, 40, 120)),
+                         tab_bar,
+                         separator() | color(Color::RGB(80, 40, 120)),
+                         renderHeatmap(habits_data, today),
+                         separatorEmpty(),
+                         prog_bar,
+                         separatorEmpty(),
+                         hab_box,
+                         separatorEmpty(),
+                         input_row,
+                         separatorEmpty(),
+                         hint,
+                     }) |
+                     borderStyled(DOUBLE, Color::RGB(70, 30, 110)) |
+                     size(WIDTH, GREATER_THAN, 72) | center;
+            }
+          }),
+
+      // ─────────────────────────────────────────
+      //  EVENT HANDLER
+      //  Key design:
+      //  • In INPUT mode (INSERT), only Enter/Esc/Ctrl+H/Ctrl+T are
+      //  intercepted.
+      //    All other keys are forwarded to the input widget → no conflicts.
+      //  • In LIST mode, vim keys (j/k/d/m/i/space/q) work freely.
+      // ─────────────────────────────────────────
+      [&](Event e) -> bool {
+        // ────────────── INSERT MODE ──────────────
+        if (inputMode == InputMode::ACTIVE) {
+
+          // Enter → add item to current page
+          if (e == Event::Return) {
+            if (!new_input.empty()) {
+              // Extract tag from #TAG at end
+              std::string tag;
+              std::string name = new_input;
+              size_t hp = name.rfind('#');
+              if (hp != std::string::npos && hp > 0) {
+                tag = name.substr(hp + 1);
+                while (!tag.empty() && std::isspace((unsigned char)tag.back()))
+                  tag.pop_back();
+                name = name.substr(0, hp);
+                while (!name.empty() &&
+                       std::isspace((unsigned char)name.back()))
+                  name.pop_back();
+              }
+              if (!name.empty()) {
+                if (page == AppPage::TASKS) {
+                  tasks.push_back({name, false, tag});
+                  task_sel = (int)tasks.size() - 1;
+                } else {
+                  habits.push_back({name, false, tag});
+                  habit_sel = (int)habits.size() - 1;
+                }
+                new_input.clear();
+                persist();
+              }
+            }
+            return true;
+          }
+
+          // Esc → switch to LIST mode (stay on same page)
+          if (e == Event::Escape) {
+            inputMode = InputMode::INACTIVE;
+            new_input.clear();
+            return true;
+          }
+
+          // Ctrl+G → switch to HABITS page (stay in insert mode)
+          if (e == Event::CtrlG) {
+            page = AppPage::HABITS;
+            new_input.clear();
+            return true;
+          }
+
+          // Ctrl+T → switch to TASKS page (stay in insert mode)
+          if (e == Event::CtrlT) {
+            page = AppPage::TASKS;
+            new_input.clear();
+            return true;
+          }
+
+          // All other events → let input widget handle (typing freely)
+          return raw_input->OnEvent(e);
         }
-        
-        auto row  = hbox({num, icon, lbl, filler(), tag_el});
-        if (sel) row = row | bgcolor(Color::RGB(38, 48, 75)) | bold;
-        task_rows.push_back(row | size(HEIGHT, EQUAL, 1));
-      }
 
-      Element task_area = task_rows.empty()
-        ? vbox({separatorEmpty(),
-                text("  No tasks yet -- type above and press Enter") | dim | center,
-                separatorEmpty()})
-        : vbox(task_rows);
+        // ────────────── LIST MODE (INACTIVE input) ──────────────
 
-      auto task_box = task_area | frame | size(HEIGHT, GREATER_THAN, 3) |
-                      borderStyled(ROUNDED,
-                        tasks_focused ? Color::RGB(120, 180, 255)
-                                      : Color::RGB(48, 60, 100));
-
-      bool habits_focused = (focus == AppFocus::HABITS);
-      Elements habit_rows;
-      for (int i = 0; i < habits_total; i++) {
-        auto &h   = habits[i];
-        bool  sel = habits_focused && (i == selected);
-        auto num  = text(" " + std::to_string(i + 1) + ". ") | color(Color::GrayLight);
-        auto icon = h.is_done
-                      ? text(" v ") | color(Color::RGB(57, 211, 83))
-                      : text(" o ") | color(Color::Yellow);
-        auto lbl  = h.is_done
-                      ? text(h.name) | strikethrough | color(Color::GrayDark) | flex
-                      : text(h.name) | flex;
-        
-        Element tag_el = separatorEmpty();
-        if (!h.tag.empty()) {
-          Color tag_color = Color::RGB(100, 100, 200);
-          if (h.tag == "DAILY") tag_color = Color::RGB(100, 150, 200);
-          else if (h.tag == "WEEKLY") tag_color = Color::RGB(150, 100, 200);
-          
-          tag_el = text(" " + h.tag + " ") | bgcolor(tag_color) | color(Color::RGB(200, 200, 200));
+        // Switch page: Ctrl+G or Ctrl+T
+        if (e == Event::CtrlG) {
+          page = AppPage::HABITS;
+          return true;
         }
-        
-        auto row  = hbox({num, icon, lbl, filler(), tag_el});
-        if (sel) row = row | bgcolor(Color::RGB(38, 48, 75)) | bold;
-        habit_rows.push_back(row | size(HEIGHT, EQUAL, 1));
-      }
+        if (e == Event::CtrlT) {
+          page = AppPage::TASKS;
+          return true;
+        }
 
-      Element habit_area = habit_rows.empty()
-        ? vbox({text("  No habits yet") | dim | center})
-        : vbox(habit_rows);
+        // Enter INSERT mode: 'i' or Insert key
+        if (e == Event::Character('i') || e == Event::Insert) {
+          inputMode = InputMode::ACTIVE;
+          return true;
+        }
 
-      auto habit_box = habit_area | frame | size(HEIGHT, GREATER_THAN, 3) |
-                       borderStyled(ROUNDED,
-                         habits_focused ? Color::RGB(120, 180, 255)
-                                        : Color::RGB(48, 60, 100));
+        // Quit
+        if (e == Event::Character('q') || e == Event::Character('Q')) {
+          persist();
+          screen.ExitLoopClosure()();
+          return true;
+        }
 
-      Element hint;
-      if (focus == AppFocus::INPUT) {
-        hint = hbox({
-          text(" INPUT ") | bgcolor(Color::RGB(50, 80, 180)) | bold,
-          text("  Enter:add   Tab:tasks   Ctrl+L:habits   H:heatmap   Q:quit   (+H for habits)") | dim,
-        });
-      } else if (focus == AppFocus::TASKS) {
-        hint = hbox({
-            text(" TASKS ") | bgcolor(Color::RGB(30, 100, 50)) | bold,
-            text("  up/down jk:move   Space:toggle   Ctrl+D:delete   "
-                 "Esc/Tab:back   Ctrl+L:habits   Q:quit") |
-                dim,
-        });
-      } else {
-        hint = hbox({
-            text(" HABITS ") | bgcolor(Color::RGB(100, 50, 100)) | bold,
-            text("  up/down jk:move   Space:toggle   Ctrl+D:delete   "
-                 "Esc/Tab:back   Ctrl+L:tasks   Q:quit") |
-                dim,
-        });
-      }
+        // ── TASKS page LIST mode ──────────────────
+        if (page == AppPage::TASKS) {
+          if (tasks.empty())
+            return true;
 
-      return vbox({
-                 hbox({
-                     text(" TODO CLI ") | bold |
-                         color(Color::RGB(120, 180, 255)),
-                     text(" v2.1.0 ") | dim | color(Color::GrayLight),
-                     filler(),
-                     text(" CONNECTED_SESSION ") |
-                         bgcolor(Color::RGB(30, 100, 50)) | bold |
-                         color(Color::GrayLight),
-                     text(" " + today + " ") | color(Color::GrayLight),
-                 }) | size(HEIGHT, EQUAL, 1),
-                 separatorEmpty(),
-                 renderHeatmap(tasks_data, today),
-                 separatorEmpty(),
-                 hbox({
-                     text(" TASKS > ") | color(Color::RGB(57, 211, 83)),
-                     gauge(tasks_progress) |
-                         color(tasks_progress < 0.3f ? Color::RGB(200, 60, 60)
-                               : tasks_progress < 0.7f
-                                   ? Color::Yellow
-                                   : Color::RGB(57, 211, 83)) |
-                         flex,
-                     text(" " + tasks_pct + " ") | color(Color::GrayLight),
-                 }),
-                 separatorEmpty(),
-                 task_box,
-                 separatorEmpty(),
-                 hbox({
-                     text(" HABITS > ") | color(Color::RGB(150, 100, 200)),
-                     gauge(habits_progress) |
-                         color(habits_progress < 0.3f ? Color::RGB(200, 60, 60)
-                               : habits_progress < 0.7f
-                                   ? Color::Yellow
-                                   : Color::RGB(57, 211, 83)) |
-                         flex,
-                     text(" " + habits_pct + " ") | color(Color::GrayLight),
-                 }),
-                 separatorEmpty(),
-                 habit_box,
-                 separatorEmpty(),
-                 input_row,
-                 separatorEmpty(),
-                 hint,
-             }) |
-             borderStyled(DOUBLE, Color::RGB(48, 60, 120)) |
-             size(WIDTH, GREATER_THAN, 70) | center;
-    }),
-
-    [&](Event e) -> bool {
-
-      // INPUT MODE
-      if (focus == AppFocus::INPUT) {
-        if (e == Event::Return) {
-          if (!new_task.empty()) {
-            bool is_habit = false;
-            if (new_task.size() > 2 && new_task[0] == '+' && new_task[1] == 'H' && new_task[2] == ' ') {
-              is_habit = true;
-              new_task = new_task.substr(3);
-            }
-
-            std::string tag;
-            size_t hash_pos = new_task.rfind('#');
-            if (hash_pos != std::string::npos && hash_pos > 0) {
-              tag = new_task.substr(hash_pos + 1);
-              while (!tag.empty() && std::isspace((unsigned char)tag.back()))
-                tag.pop_back();
-              new_task = new_task.substr(0, hash_pos);
-              while (!new_task.empty() && std::isspace((unsigned char)new_task.back()))
-                new_task.pop_back();
-            }
-
-            if (is_habit) {
-              habits.push_back({new_task, false, tag});
-              selected = (int)habits.size() - 1;
-              focus = AppFocus::HABITS;
-            } else {
-              tasks.push_back({new_task, false, tag});
-              selected = (int)tasks.size() - 1;
-              focus = AppFocus::TASKS;
-            }
-            new_task.clear();
+          if (e == Event::ArrowDown || e == Event::Character('j')) {
+            task_sel = std::min((int)tasks.size() - 1, task_sel + 1);
+            return true;
+          }
+          if (e == Event::ArrowUp || e == Event::Character('k')) {
+            task_sel = std::max(0, task_sel - 1);
+            return true;
+          }
+          if (e == Event::Character(' ')) {
+            tasks[task_sel].is_done = !tasks[task_sel].is_done;
             persist();
+            return true;
+          }
+          // D → delete
+          if (e == Event::Character('d') || e == Event::Character('D')) {
+            tasks.erase(tasks.begin() + task_sel);
+            if (!tasks.empty())
+              task_sel = std::min(task_sel, (int)tasks.size() - 1);
+            else
+              task_sel = 0;
+            persist();
+            return true;
+          }
+          // M → move selected task to habits
+          if (e == Event::Character('m') || e == Event::Character('M')) {
+            TodoItem item = tasks[task_sel];
+            tasks.erase(tasks.begin() + task_sel);
+            if (!tasks.empty())
+              task_sel = std::min(task_sel, (int)tasks.size() - 1);
+            else
+              task_sel = 0;
+            item.is_done = false;
+            habits.push_back(item);
+            habit_sel = (int)habits.size() - 1;
+            page = AppPage::HABITS;
+            persist();
+            return true;
           }
           return true;
         }
-        if (e == Event::Tab && !tasks.empty()) {
-          focus = AppFocus::TASKS;
-          selected = 0;
-          return true;
-        }
-        if (e == Event::CtrlL && !habits.empty()) {
-          focus = AppFocus::HABITS;
-          selected = 0;
-          return true;
-        }
-        if (e == Event::Character('q')) {
-          persist();
-          screen.ExitLoopClosure()();
-          return true;
-        }
-        return raw_input->OnEvent(e);
-      }
 
-      // TASK MODE
-      if (focus == AppFocus::TASKS) {
-        if (e == Event::Escape || e == Event::Tab) {
-          focus = AppFocus::INPUT;
-          return true;
-        }
-        if (tasks.empty()) return true;
+        // ── HABITS page LIST mode ──────────────────
+        if (page == AppPage::HABITS) {
+          if (habits.empty())
+            return true;
 
-        if (e == Event::ArrowDown || e == Event::Character('j')) {
-          selected = std::min((int)tasks.size() - 1, selected + 1);
+          if (e == Event::ArrowDown || e == Event::Character('j')) {
+            habit_sel = std::min((int)habits.size() - 1, habit_sel + 1);
+            return true;
+          }
+          if (e == Event::ArrowUp || e == Event::Character('k')) {
+            habit_sel = std::max(0, habit_sel - 1);
+            return true;
+          }
+          if (e == Event::Character(' ')) {
+            habits[habit_sel].is_done = !habits[habit_sel].is_done;
+            persist();
+            return true;
+          }
+          // D → delete
+          if (e == Event::Character('d') || e == Event::Character('D')) {
+            habits.erase(habits.begin() + habit_sel);
+            if (!habits.empty())
+              habit_sel = std::min(habit_sel, (int)habits.size() - 1);
+            else
+              habit_sel = 0;
+            persist();
+            return true;
+          }
+          // M → move selected habit to tasks
+          if (e == Event::Character('m') || e == Event::Character('M')) {
+            TodoItem item = habits[habit_sel];
+            habits.erase(habits.begin() + habit_sel);
+            if (!habits.empty())
+              habit_sel = std::min(habit_sel, (int)habits.size() - 1);
+            else
+              habit_sel = 0;
+            item.is_done = false;
+            tasks.push_back(item);
+            task_sel = (int)tasks.size() - 1;
+            page = AppPage::TASKS;
+            persist();
+            return true;
+          }
           return true;
         }
-        if (e == Event::ArrowUp || e == Event::Character('k')) {
-          selected = std::max(0, selected - 1);
-          return true;
-        }
-        if (e == Event::Character(' ')) {
-          tasks[selected].is_done = !tasks[selected].is_done;
-          persist();
-          return true;
-        }
-        // Toggle habit or task  with 'h'
-        if (e == Event::Character('h')) {
-          TodoItem item = tasks[selected];
-          tasks.erase(tasks.begin() + selected);
-          if (!tasks.empty())
-            selected = std::min(selected, (int)tasks.size() - 1);
-          else
-            selected = 0;
 
-          item.is_done = false; // Reset done status when moving to habits
-          habits.push_back(item);
-          selected = (int)habits.size() - 1;
-          focus = AppFocus::HABITS;
-          persist();
-          return true;
-        }
-        if (e == Event::Character('\x04')) {
-          tasks.erase(tasks.begin() + selected);
-          if (!tasks.empty())
-            selected = std::min(selected, (int)tasks.size() - 1);
-          else
-            selected = 0;
-          persist();
-          return true;
-        }
-        if (e == Event::CtrlL && !habits.empty()) {
-          focus = AppFocus::HABITS;
-          selected = 0;
-          return true;
-        }
-        if (e == Event::Character('q')) {
-          persist();
-          screen.ExitLoopClosure()();
-          return true;
-        }
-        return true;
-      }
-
-      // HABITS MODE
-      if (focus == AppFocus::HABITS) {
-        if (e == Event::Escape || e == Event::Tab) {
-          focus = AppFocus::INPUT;
-          return true;
-        }
-        if (habits.empty()) return true;
-
-        if (e == Event::ArrowDown || e == Event::Character('j')) {
-          selected = std::min((int)habits.size() - 1, selected + 1);
-          return true;
-        }
-        if (e == Event::ArrowUp || e == Event::Character('k')) {
-          selected = std::max(0, selected - 1);
-          return true;
-        }
-        if (e == Event::Character(' ')) {
-          habits[selected].is_done = !habits[selected].is_done;
-          persist();
-          return true;
-        }
-        if (e == Event::Character('d')) {
-          habits.erase(habits.begin() + selected);
-          if (!habits.empty())
-            selected = std::min(selected, (int)habits.size() - 1);
-          else
-            selected = 0;
-          persist();
-          return true;
-        }
-        if (e == Event::CtrlL && !tasks.empty()) {
-          focus = AppFocus::TASKS;
-          selected = 0;
-          return true;
-        }
-        if (e == Event::Character('q')) {
-          persist();
-          screen.ExitLoopClosure()();
-          return true;
-        }
-        return true;
-      }
-
-      return false;
-    }
-  );
+        return false;
+      });
 
   screen.Loop(root);
   return 0;

@@ -16,6 +16,7 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/box.cpp.o: _deps/ftxui-
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -123,7 +124,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/color.cpp.o: _deps/ftxu
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -290,7 +293,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/color_info.cpp.o: _deps
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -455,7 +460,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/image.cpp.o: _deps/ftxu
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -675,7 +682,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/screen.cpp.o: _deps/ftx
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -897,7 +906,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/string.cpp.o: _deps/ftx
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1065,7 +1076,9 @@ _deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/terminal.cpp.o: _deps/f
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1250,15 +1263,13 @@ _deps/ftxui-src/src/ftxui/screen/string.cpp:
 
 _deps/ftxui-src/include/ftxui/screen/string.hpp:
 
-_deps/ftxui-src/include/ftxui/screen/screen.hpp:
+/usr/include/time.h:
 
 /usr/include/c++/15.2.1/bits/allocator.h:
 
 /usr/include/c++/15.2.1/bits/alloc_traits.h:
 
 /usr/include/asm/bitsperlong.h:
-
-/usr/include/c++/15.2.1/bits/char_traits.h:
 
 /usr/include/bits/environments.h:
 
@@ -1293,6 +1304,12 @@ _deps/ftxui-src/src/ftxui/screen/screen.cpp:
 /usr/include/linux/ioctl.h:
 
 /usr/include/bits/fp-logb.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/c++/15.2.1/new:
+
+/usr/include/c++/15.2.1/debug/assertions.h:
 
 /usr/include/asm-generic/errno-base.h:
 
@@ -1352,10 +1369,6 @@ _deps/ftxui-src/include/ftxui/screen/color_info.hpp:
 
 /usr/include/bits/stdint-least.h:
 
-/usr/include/c++/15.2.1/new:
-
-/usr/include/c++/15.2.1/debug/assertions.h:
-
 /usr/include/bits/types/mbstate_t.h:
 
 /usr/include/c++/15.2.1/initializer_list:
@@ -1376,10 +1389,6 @@ _deps/ftxui-src/include/ftxui/screen/color_info.hpp:
 
 /usr/include/wchar.h:
 
-/usr/include/c++/15.2.1/bits/move.h:
-
-/usr/include/bits/types.h:
-
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/bits/time64.h:
@@ -1393,10 +1402,6 @@ _deps/ftxui-src/include/ftxui/screen/box.hpp:
 /usr/include/bits/byteswap.h:
 
 /usr/include/c++/15.2.1/tr1/special_function_util.h:
-
-/usr/include/c++/15.2.1/ext/atomicity.h:
-
-/usr/include/bits/types/struct_timespec.h:
 
 /usr/include/c++/15.2.1/bits/stl_tree.h:
 
@@ -1414,19 +1419,23 @@ _deps/ftxui-src/include/ftxui/screen/box.hpp:
 
 /usr/include/c++/15.2.1/exception:
 
+/usr/include/c++/15.2.1/bits/move.h:
+
+/usr/include/bits/types.h:
+
 /usr/include/bits/types/error_t.h:
 
 /usr/include/c++/15.2.1/bits/requires_hosted.h:
-
-/usr/include/bits/math-vector.h:
-
-/usr/include/c++/15.2.1/bits/exception.h:
 
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/bits/types/time_t.h:
 
 /usr/include/bits/select.h:
+
+_deps/ftxui-src/include/ftxui/screen/screen.hpp:
+
+/usr/include/bits/stdlib-bsearch.h:
 
 /usr/include/c++/15.2.1/bits/stl_algobase.h:
 
@@ -1441,6 +1450,12 @@ _deps/ftxui-src/include/ftxui/screen/box.hpp:
 /usr/include/bits/libc-header-start.h:
 
 /usr/include/c++/15.2.1/ostream:
+
+/usr/include/c++/15.2.1/bits/exception.h:
+
+/usr/include/bits/math-vector.h:
+
+/usr/include/c++/15.2.1/bits/char_traits.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
 
@@ -1508,11 +1523,19 @@ _deps/ftxui-src/src/ftxui/screen/color.cpp:
 
 /usr/include/c++/15.2.1/bits/exception_ptr.h:
 
+/usr/include/c++/15.2.1/ext/atomicity.h:
+
+/usr/include/bits/types/struct_timespec.h:
+
 _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 
 /usr/include/bits/types/wint_t.h:
 
 /usr/include/c++/15.2.1/bits/memoryfwd.h:
+
+/usr/include/c++/15.2.1/bits/uniform_int_dist.h:
+
+/usr/include/c++/15.2.1/cwchar:
 
 /usr/include/c++/15.2.1/bits/ptr_traits.h:
 
@@ -1525,10 +1548,6 @@ _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/c++/15.2.1/algorithm:
-
-/usr/include/c++/15.2.1/bits/node_handle.h:
-
-/usr/include/c++/15.2.1/bits/basic_string.tcc:
 
 /usr/include/c++/15.2.1/ext/type_traits.h:
 
@@ -1566,9 +1585,9 @@ _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 
 /usr/include/c++/15.2.1/bits/ios_base.h:
 
-/usr/include/c++/15.2.1/cwchar:
+/usr/include/c++/15.2.1/bits/node_handle.h:
 
-/usr/include/c++/15.2.1/bits/uniform_int_dist.h:
+/usr/include/c++/15.2.1/bits/basic_string.tcc:
 
 /usr/include/bits/mathcalls-helper-functions.h:
 
@@ -1591,8 +1610,6 @@ _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 /usr/include/c++/15.2.1/bits/localefwd.h:
 
 /usr/include/c++/15.2.1/bits/memory_resource.h:
-
-/usr/include/time.h:
 
 /usr/include/c++/15.2.1/bits/new_allocator.h:
 
@@ -1790,9 +1807,9 @@ _deps/ftxui-src/src/ftxui/screen/string_internal.hpp:
 
 /usr/include/pthread.h:
 
-/usr/include/bits/fp-fast.h:
-
 /usr/include/wctype.h:
+
+/usr/include/bits/fp-fast.h:
 
 /usr/include/sched.h:
 

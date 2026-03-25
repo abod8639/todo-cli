@@ -28,6 +28,7 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o: 
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -222,7 +223,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/button.cpp.o: _de
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -508,7 +511,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -793,7 +798,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o: _
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1076,7 +1083,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1364,7 +1373,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component.cpp.o: 
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1655,7 +1666,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component_options
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1940,7 +1953,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/container.cpp.o: 
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -2231,7 +2246,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o: _
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -2479,7 +2496,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/event.cpp.o: _dep
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -2677,7 +2696,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o: 
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -2967,7 +2988,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/input.cpp.o: _dep
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -3258,7 +3281,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o: _deps
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -3544,7 +3569,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o: _dep
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -3832,7 +3859,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o: _deps
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -4123,7 +4152,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o: _dep
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -4411,7 +4442,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o: _
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -4697,7 +4730,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o: _
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -4982,7 +5017,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/resizable_split.c
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -5300,7 +5337,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/screen_interactiv
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -5631,7 +5670,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o: _de
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -6374,7 +6415,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/terminal_input_pa
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -6621,7 +6664,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/util.cpp.o: _deps
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -6909,7 +6954,9 @@ _deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/window.cpp.o: _de
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -7324,6 +7371,8 @@ _deps/ftxui-src/src/ftxui/component/task_queue.hpp:
 
 /usr/include/c++/15.2.1/bits/streambuf_iterator.h:
 
+/usr/include/c++/15.2.1/bits/stl_stack.h:
+
 /usr/include/c++/15.2.1/tr1/ell_integral.tcc:
 
 /usr/include/bits/endianness.h:
@@ -7402,10 +7451,6 @@ _deps/ftxui-src/include/ftxui/dom/direction.hpp:
 
 /usr/include/bits/cpu-set.h:
 
-/usr/include/bits/signum-arch.h:
-
-/usr/include/c++/15.2.1/bits/stl_algobase.h:
-
 /usr/include/linux/types.h:
 
 /usr/include/c++/15.2.1/bits/std_abs.h:
@@ -7446,11 +7491,11 @@ _deps/ftxui-src/src/ftxui/component/radiobox.cpp:
 
 /usr/include/c++/15.2.1/new:
 
+/usr/include/bits/stdio.h:
+
 /usr/include/bits/stdint-least.h:
 
 /usr/include/c++/15.2.1/bits/ostream.h:
-
-_deps/ftxui-src/include/ftxui/dom/take_any_args.hpp:
 
 /usr/include/c++/15.2.1/bits/unordered_map.h:
 
@@ -7461,6 +7506,26 @@ _deps/ftxui-src/include/ftxui/dom/take_any_args.hpp:
 /usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/gnu/stubs.h:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/include/c++/15.2.1/bits/stl_algobase.h:
+
+/usr/include/c++/15.2.1/chrono:
+
+/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
+
+_deps/ftxui-src/include/ftxui/component/mouse.hpp:
+
+/usr/include/bits/termios-c_cc.h:
+
+/usr/include/c++/15.2.1/bits/ios_base.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
 
@@ -7560,6 +7625,8 @@ _deps/ftxui-src/include/ftxui/component/component_base.hpp:
 
 /usr/include/bits/struct_rwlock.h:
 
+/usr/include/bits/stdlib-bsearch.h:
+
 _deps/ftxui-src/include/ftxui/screen/screen.hpp:
 
 _deps/ftxui-src/src/ftxui/component/component_options.cpp:
@@ -7572,6 +7639,8 @@ _deps/ftxui-src/src/ftxui/component/component_options.cpp:
 
 _deps/ftxui-src/include/ftxui/component/task.hpp:
 
+_deps/ftxui-src/include/ftxui/dom/take_any_args.hpp:
+
 /usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/15.2.1/bits/basic_ios.tcc:
@@ -7582,31 +7651,17 @@ _deps/ftxui-src/src/ftxui/component/task_runner.cpp:
 
 /usr/include/c++/15.2.1/tr1/special_function_util.h:
 
-/usr/include/bits/time64.h:
+/usr/include/c++/15.2.1/bits/allocator.h:
 
-/usr/include/bits/stdlib-float.h:
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/types/__mbstate_t.h:
 
 /usr/include/bits/ss_flags.h:
 
 /usr/include/c++/15.2.1/bits/requires_hosted.h:
 
 /usr/include/bits/types/error_t.h:
-
-_deps/ftxui-src/src/ftxui/component/loop.cpp:
-
-/usr/include/c++/15.2.1/tr1/gamma.tcc:
-
-/usr/include/c++/15.2.1/chrono:
-
-/usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
-
-_deps/ftxui-src/include/ftxui/component/mouse.hpp:
-
-/usr/include/bits/termios-c_cc.h:
-
-/usr/include/c++/15.2.1/bits/ios_base.h:
-
-/usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/15.2.1/ratio:
 
@@ -7730,8 +7785,6 @@ _deps/ftxui-src/include/ftxui/util/ref.hpp:
 
 /usr/include/bits/types/struct_tm.h:
 
-/usr/include/c++/15.2.1/bits/stl_stack.h:
-
 /usr/include/c++/15.2.1/cwctype:
 
 /usr/include/c++/15.2.1/compare:
@@ -7740,11 +7793,9 @@ _deps/ftxui-src/include/ftxui/util/ref.hpp:
 
 /usr/include/asm/posix_types_64.h:
 
-/usr/include/bits/stdio_lim.h:
+_deps/ftxui-src/src/ftxui/component/loop.cpp:
 
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/c++/15.2.1/bits/allocator.h:
+/usr/include/c++/15.2.1/tr1/gamma.tcc:
 
 /usr/include/bits/types/struct_sigstack.h:
 

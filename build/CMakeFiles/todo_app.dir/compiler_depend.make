@@ -62,7 +62,9 @@ CMakeFiles/todo_app.dir/main.cpp.o: /home/dexter/todoCLI/main.cpp \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -429,7 +431,9 @@ CMakeFiles/todo_app.dir/main.cpp.o:
 
 /usr/include/c++/15.2.1/string_view:
 
-/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+/usr/include/c++/15.2.1/string:
+
+/usr/include/c++/15.2.1/streambuf:
 
 /usr/include/c++/15.2.1/bits/concept_check.h:
 
@@ -487,8 +491,6 @@ _deps/ftxui-src/include/ftxui/dom/deprecated.hpp:
 
 /usr/include/c++/15.2.1/bits/chrono.h:
 
-_deps/ftxui-src/include/ftxui/screen/screen.hpp:
-
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
 
 /usr/include/bits/types/sigset_t.h:
@@ -518,6 +520,16 @@ _deps/ftxui-src/include/ftxui/screen/screen.hpp:
 /usr/include/bits/types/time_t.h:
 
 _deps/ftxui-src/include/ftxui/dom/take_any_args.hpp:
+
+_deps/ftxui-src/include/ftxui/screen/screen.hpp:
+
+/usr/include/bits/stdlib-bsearch.h:
+
+/usr/include/pthread.h:
+
+/usr/include/c++/15.2.1/bits/stl_algo.h:
+
+/usr/include/c++/15.2.1/bits/stl_uninitialized.h:
 
 _deps/ftxui-src/include/ftxui/util/warn_windows_macro.hpp:
 
@@ -647,6 +659,10 @@ _deps/ftxui-src/include/ftxui/screen/pixel.hpp:
 
 /usr/include/c++/15.2.1/bits/codecvt.h:
 
+/usr/include/bits/stdio.h:
+
+/usr/include/c++/15.2.1/new:
+
 _deps/ftxui-src/include/ftxui/component/component.hpp:
 
 _deps/ftxui-src/include/ftxui/dom/canvas.hpp:
@@ -702,8 +718,6 @@ _deps/ftxui-src/include/ftxui/component/captured_mouse.hpp:
 /usr/include/c++/15.2.1/bits/align.h:
 
 /usr/include/c++/15.2.1/bits/functexcept.h:
-
-/usr/include/c++/15.2.1/streambuf:
 
 /usr/include/features-time64.h:
 
@@ -765,6 +779,8 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/bits/long-double.h:
 
+/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+
 /usr/include/c++/15.2.1/bits/deque.tcc:
 
 /usr/include/c++/15.2.1/memory:
@@ -772,6 +788,10 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 /usr/include/c++/15.2.1/stdexcept:
 
 /usr/include/c++/15.2.1/bits/erase_if.h:
+
+/usr/include/c++/15.2.1/debug/assertions.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
 
 /usr/lib/crtn.o:
 
@@ -889,12 +909,6 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h:
 
-/usr/include/pthread.h:
-
-/usr/include/c++/15.2.1/bits/stl_algo.h:
-
-/usr/include/c++/15.2.1/bits/stl_uninitialized.h:
-
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/15.2.1/bits/stl_vector.h:
@@ -947,12 +961,6 @@ _deps/ftxui-src/include/ftxui/component/event.hpp:
 
 /usr/include/c++/15.2.1/ctime:
 
-/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
-
-/usr/include/c++/15.2.1/debug/assertions.h:
-
-/usr/include/c++/15.2.1/new:
-
 /usr/include/c++/15.2.1/ext/alloc_traits.h:
 
 /usr/include/c++/15.2.1/bits/cxxabi_forced.h:
@@ -994,5 +1002,3 @@ _deps/ftxui-build/libftxui-screen.a:
 /usr/include/c++/15.2.1/ratio:
 
 /usr/include/c++/15.2.1/sstream:
-
-/usr/include/c++/15.2.1/string:

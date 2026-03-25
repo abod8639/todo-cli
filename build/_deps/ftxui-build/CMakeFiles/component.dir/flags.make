@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/dexter/todoCLI/build/_deps/ftxui-src/src -isystem /home/dexter/todoCLI/build/_deps/ftxui-src/include
 
-CXX_FLAGS = -fPIC
+CXX_FLAGS = -O3 -DNDEBUG -fPIC
 

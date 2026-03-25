@@ -5,14 +5,14 @@
       "total": 3,
       "tasks": ["Build todo cli", "Improve UI", "Test save"],
       "task_done": [true, true, true],
-      "task_tags": ["", "URGENT", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "';, ;zx', zx", "hhhhhHHhokj", ";lsmclsdmcdslkchH", "zxzxz", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "ssssssssssssssssss", "task_done", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "d;skjdsc", "lmsdlkcmsdv", "lkncklsdnlksd", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", ";lasmxc;slamcs", "task_done", "", "", "", "", "", "", "", "", "", ""]
+      "task_tags": ["", "URGENT", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "';, ;zx', zx", "hhhhhHHhokj", ";lsmclsdmcdslkchH", "zxzxz", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "ssssssssssssssssss", "task_done", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "d;skjdsc", "lmsdlkcmsdv", "lkncklsdnlksd", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", ";lasmxc;slamcs", "task_done", "", "", "", "", "", "", "", "", "", "", "", "2026-02-23", "", "done", "", "total", "", "tasks", "", "build todo cli", "task_done", "", "", "", "", "", "", "", "", "", "", "", "2026-02-25", "", "done", "", "total", "", "tasks", "", "fix the app", "improve the data base", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-25", "", "done", "", "total", "", "tasks", "", "sdcdsmnkcnd", "kdnckjwnc", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "jj", "         hhh y hj", "km kj", "   ", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "knkjnq", "task_done", "", "", "", "", "", "", "", "", "", "", "", "2026-02-26", "", "done", "", "total", "", "tasks", "", "knxkjasnx", "ksanxksajnx", "  ,amsxaslx", "task_done", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     },
-    "2026-02-23": {
+    "2026-02-27": {
       "done": 0,
-      "total": 1,
-      "tasks": ["build todo cli"],
-      "task_done": [false],
-      "task_tags": [""]
+      "total": 0,
+      "tasks": [],
+      "task_done": [],
+      "task_tags": []
     }
   }
 }

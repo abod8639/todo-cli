@@ -4,6 +4,11 @@ A professional command-line application for managing daily tasks and habits with
 
 ---
 
+## demo
+
+![demo](assets/image.png)
+
+
 ## PROJECT OVERVIEW
 
 Todo CLI is an interactive terminal-based application that provides a clean, efficient interface for task and habit management without the need for complex graphical user interfaces. It offers:
